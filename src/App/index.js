@@ -5,11 +5,9 @@ import { TodoProvider } from '../TodoContext';
 // import { TodoSearch } from '../TodoSearch';
 import { AppUI } from './AppUI';
 
-
 function App(){
   const [state, setState] = React.useState('Estado compartido');
-  return(
-    
+  return( 
       <React.Fragment>
       <TodoHeader> 
         <TodoCounter/>
@@ -18,8 +16,7 @@ function App(){
       <TodoList>
         <TodoItem state={state}/>
       </TodoList>
-    </React.Fragment>
-   
+    </React.Fragment> 
   );
 }
 function TodoHeader({children}){
@@ -52,5 +49,4 @@ function TodoItem({state}){
 //     </TodoProvider>
 //   );
 // }
-
 export default App;
