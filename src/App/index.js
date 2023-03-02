@@ -48,26 +48,23 @@ function App() {
         />
       </TodoHeader>
       {/* Lista de todos */}
-      <TodoList>
-        {/* Mensaje de error */}
-        {error && <TodosError />}
-        {/* Indicador de carga */}
-        {loading && <TodosLoading />}
-        {/* Mensaje de lista vacía */}
-        {(!loading && !searchedTodos.length) && <EmptyTodos />}
 
-        {/* Renderización de cada todo */}
-        {searchedTodos.map(todo => (
-          <TodoItem
-            key={todo.text}
-            text={todo.text}
-            completed={todo.completed}
-            onComplete={() => completeTodo(todo.text)}
-            onDelete={() => deleteTodo(todo.text)}
-          />
-        ))}
-      </TodoList>
-
+      <TodoList
+        error={error}
+        loading={loading}
+        searchedTodos={searchedTodos}
+        onError={()=><TodosError/>}
+        onLoading={()=><TodosLoading/>}
+        onEmptyTodos={()=><EmptyTodos/>}
+        render={todo=> 
+          (<TodoItem
+          key={todo.text}
+          text={todo.text}
+          completed={todo.completed}
+          onComplete={() => completeTodo(todo.text)}
+          onDelete={() => deleteTodo(todo.text)}
+        />)}
+      />
       {/* Modal para agregar nuevos todos */}
       {!!openModal && (
         <Modal>
