@@ -12,10 +12,7 @@ import { TodoForm } from '../TodoForm';
 import { CreateTodoButton } from '../CreateTodoButton';
 import { Modal } from '../Modal';
 
-// Componente principal que renderiza la aplicación
 function App() {
-
-  // Custom hook para manejar la lógica de los todos
   const {
     error,
     loading,
@@ -31,23 +28,18 @@ function App() {
     addTodo,
   } = useTodos();
 
-  // Renderización del componente principal
   return (
     <React.Fragment>
-      {/* Encabezado de la aplicación */}
-      <TodoHeader>
-        {/* Contador de todos */}
+      <TodoHeader loading={loading}>
         <TodoCounter
           totalTodos={totalTodos}
           completedTodos={completedTodos}
         />
-        {/* Búsqueda de todos */}
         <TodoSearch
           searchValue={searchValue}
           setSearchValue={setSearchValue}
         />
       </TodoHeader>
-      {/* Lista de todos */}
 
       <TodoList
         error={error}
