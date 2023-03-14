@@ -3,6 +3,7 @@ import React from 'react';
 // custom hook that provides functionality to store and retrieve values from local storage
 function useLocalStorage(itemName, initialValue) {
   // set up state for error, loading, and stored item
+  const [sincronizedItem, setSincronizedItem] = React.useState(true);
   const [error, setError] = React.useState(false);
   const [loading, setLoading] = React.useState(true);
   const [item, setItem] = React.useState(initialValue);
@@ -24,11 +25,12 @@ function useLocalStorage(itemName, initialValue) {
         // update state with stored item, and set loading to false
         setItem(parsedItem);
         setLoading(false);
+        setSincronizedItem(true);
       } catch(error) {
         setError(error);
       }
     }, 3000);
-  });
+  }, [sincronizedItem]);
   
   // function to save a new item to local storage, and update state with the new value
   const saveItem = (newItem) => {
@@ -41,12 +43,17 @@ function useLocalStorage(itemName, initialValue) {
     }
   };
 
+  const sincronizeItem = () => {
+    setLoading(true);
+    setSincronizedItem(false);
+  };
   // return stored item, save function, loading state, and error state for external use
   return {
     item,
     saveItem,
     loading,
     error,
+    sincronizeItem,
   };
 }
 
