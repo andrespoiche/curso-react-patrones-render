@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/curso-react-patrones-render/build/static/css/main.93e1feb4.css",
+    "main.js": "/curso-react-patrones-render/build/static/js/main.777212f2.js",
+    "index.html": "/curso-react-patrones-render/build/index.html",
+    "static/media/delete.svg": "/curso-react-patrones-render/build/static/media/delete.331149da222541bc87c25bf8d775a070.svg",
+    "static/media/check.svg": "/curso-react-patrones-render/build/static/media/check.fa4fb594b16385306a04b9c87c0feb55.svg",
+    "main.93e1feb4.css.map": "/curso-react-patrones-render/build/static/css/main.93e1feb4.css.map",
+    "main.777212f2.js.map": "/curso-react-patrones-render/build/static/js/main.777212f2.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.93e1feb4.css",
+    "static/js/main.777212f2.js"
+  ]
+}
